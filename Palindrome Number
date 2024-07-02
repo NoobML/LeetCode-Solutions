@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+    if (x < 0)
+     return false;
+
+   long long div = 1;
+    while(x >= 10 * div){   // adding number of tens /hundreds to div for further calculation
+        div *=  10;
+       
+    }                           
+    while(x != 0){
+      int right = x % 10; // get the right value
+      int left = x / div;   // get the left value
+      
+      if(left != right){
+        return false;
+      }  // check if the left and right are equal
+      
+     x = (x % div) / 10; // chop of the left and right value
+     div /=100;    // reduce the div digits
+    }
+
+    return true;
+}
+};
