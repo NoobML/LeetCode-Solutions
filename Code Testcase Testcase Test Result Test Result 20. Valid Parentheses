@@ -1,0 +1,33 @@
+class Solution {
+public:
+    bool isValid(string s) {
+       stack<char> brackets;
+      int i;
+   
+        for( i = 0; i < s.size(); i++){
+            char top;
+            char current = s[i];
+            
+            if(current == '(' || current == '{' || current == '['){
+                    brackets.push(current);
+                    continue;
+            }
+            if(brackets.empty()){
+                return false;
+            }    
+            if((brackets.top() == '(' && current == ')') || 
+            (brackets.top() == '{' && current == '}')   ||
+            (brackets.top() == '[' && current == ']')){
+             brackets.pop();
+            }else{
+                return false;
+            }
+        }
+        if(brackets.empty()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
