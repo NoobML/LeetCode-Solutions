@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int k =0;
+        int n = nums.size();  // Size of the array
+        for(int i =0; i < n - 1; i++){   // iterating it till the 2nd last element 
+            if(nums[i] != nums[i + 1]){  // check if the ith and ith + 1 element are not equal ,it means the value is unique and assign it to kth index 
+                nums[k] = nums[i];
+                k++;   // increment the kth value
+            }
+        }
+      nums[k] = nums[n -1];  // as our loop iterates till n-1 which will leave the last value , and we assign it here manually
+      k++; 
+        return k;
+    }
+};
+
+// Time Complexity: O(NlogN)
+// Auxiliary Space: O(1)
