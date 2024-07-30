@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<string> fizzBuzz(int n) {
+        vector<string>s;
+        for(int i =1; i <= n; i++){
+            bool divisibleBy3 = i % 3 == 0;
+            bool divisibleBy5 = i % 5 == 0;
+
+            if(divisibleBy3 & divisibleBy5){
+                s.push_back("FizzBuzz");
+            }
+             else if(divisibleBy3){
+                s.push_back("Fizz");
+            }
+            else if(divisibleBy5){
+                s.push_back("Buzz");
+            } 
+            else{
+                string x = to_string(i);
+                s.push_back(x);
+            }  
+        }
+
+        return s;
+    }
+};
+// Time complexity = O(n)
+// Space complexity = O(1)
