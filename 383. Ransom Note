@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        
+      vector<int> count(26);
+
+    for (const char c : magazine)
+      ++count[c - 'a'];
+
+    for (const char c : ransomNote) {
+      if (count[c - 'a'] == 0)
+        return false;
+      --count[c - 'a'];
+    }
+
+    return true;
+  
+    }
+};
+    /* Time Complexity = O(n + m) ransoNote + Magazine
+       Space complexity = O(26) = O(1)   
+    */
