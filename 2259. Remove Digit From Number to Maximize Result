@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string removeDigit(string number, char digit) {
+        vector <string> newNumbers;
+        
+        for (int i = 0; i < number.length(); ++i) {
+            if (number[i] == digit) {
+                string newNumber = number;
+                newNumber.erase(i, 1);
+                newNumbers.push_back(newNumber);
+            }
+        }
+        
+        string answer = newNumbers[0];
+        for (const auto& num : newNumbers) {
+            if (num > answer) {
+                answer = num;
+            }
+        }
+        
+        return answer;
+    }
+};
