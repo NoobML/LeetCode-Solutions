@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        map<int, int> Map;
+
+        for(const auto& num : arr1){
+            Map[num]++;
+        }
+
+        int i = 0;
+
+        for(const auto& num: arr2){
+            while(Map[num]-- > 0){
+                arr1[i++] = num;
+            }
+        }
+
+        for(const auto& it: Map){
+            int frequency = it.second;
+            while(frequency > 0){
+                arr1[i++] = it.first;
+                frequency--;
+            }
+        }
+
+        return arr1;
+    }
+};
