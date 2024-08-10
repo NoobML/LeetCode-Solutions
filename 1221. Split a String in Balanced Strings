@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int balancedStringSplit(string s) {
+        
+        int Lcount = 0, Rcount = 0, balanced_strings = 0;
+
+        for(char c : s) { 
+            if(c == 'L')    
+                 Lcount++;
+            else if(c == 'R')
+                 Rcount++;
+
+
+            if(Lcount == Rcount)
+                balanced_strings++;
+    }
+
+    return balanced_strings;
+         
+    }
+};
