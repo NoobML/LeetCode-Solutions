@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool isValid(string word) {
+        
+        if(word.length() < 3) 
+            return false;
+
+        string vowels = "aeiouAEIOU";
+        string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+        string validChars = vowels + consonants + "0123456789";
+
+        bool hasVowel = false;
+        bool hasConsonant = false;
+
+        for(char c: word) {
+            
+            if (validChars.find(c) == string::npos)
+                return false;
+
+            if (vowels.find(c) != string::npos)
+                hasVowel = true;
+
+            if (consonants.find(c) != string::npos)
+                hasConsonant = true;
+        }
+
+        return hasVowel && hasConsonant;
+    }
+};
