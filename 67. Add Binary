@@ -4,21 +4,24 @@ public:
         
         int a_length = a.size();
         int b_length = b.size();
-        string s;
 
-        if(a_length > b_length)
-            b = s.append(a_length - b_length, '0') + b;
+        // Align the lengths by adding leading zeros
+       if(a_length > b_length)
+            b = string(a_length - b_length, '0') + b;
         else
-            a = s.append(b_length - a_length, '0') + a;
+            a = string(b_length - a_length, '0') + a;
+
         
         string result = "";
         int carry = 0;
 
-        for(int i = a.size() - 1; i>=0; i--){
-            int sum = (a[i] - '0') + (b[i] - '0') + carry;
-            result = to_string(sum % 2) + result;
-            carry = sum / 2;
+        for(int i = a.size() - 1; i >= 0; i--) {
+            int sum = (a[i] - '0') + (b[i] - '0') + carry;  // Add bits and carry
+            result = to_string(sum % 2) + result;  // Store result (0 or 1)
+            carry = sum / 2;  // Update carry
         }
+        
+        // If carry is non-zero, add it to the result
         if(carry != 0)
             result = "1" + result;
 
