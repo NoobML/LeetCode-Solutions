@@ -4,7 +4,7 @@ public:
         unordered_set<int>NumSeen;
 
 
-        while(n != 1 && NumSeen.find(n) == NumSeen.end(n)){
+        while(n != 1 && NumSeen.find(n) == NumSeen.end()){
 
              NumSeen.insert(n);
 
