@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+        unordered_set<int>NumSeen;
+
+
+        while(n != 1 && NumSeen.find(n) == NumSeen.end(n)){
+
+             NumSeen.insert(n);
+
+             int sum = 0;
+
+             while(n != 0){
+                int last_digit = n % 10;
+                sum = sum + last_digit * last_digit;
+                n = n / 10;
+             }
+
+            n = sum;
+        }
+        return n == 1;
+    }
+};
