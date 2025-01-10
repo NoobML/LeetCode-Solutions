@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int findLucky(vector<int>& arr) {
+        unordered_map<int, int> Frequency;
+        int luckyNum = -1;
+        
+        // Step 1: Count frequencies of each element in arr
+        for(int num: arr) {
+            Frequency[num]++;
+        }
+
+        // Step 2: Identify the largest lucky number
+        for(auto& entry: Frequency) {
+            if(entry.first == entry.second) {
+               luckyNum = max(luckyNum, entry.first);
+            }
+        }
+
+        // Step 3: Return the result
+        return luckyNum;
+    }
+};
